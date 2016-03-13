@@ -31,7 +31,16 @@ class  Master: UITableViewController {
 		return cell
 	}
 
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		guard let detail = segue.destinationViewController as? Detail else { return }
+		guard let indexPath = sender as? NSIndexPath else { return }
+
+		detail.note = notes[indexPath.row]
+	}
+
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		performSegueWithIdentifier("showDetail", sender: indexPath)
+
 		tableView.deselectRowAtIndexPath(indexPath, animated: true)
 	}
 }
