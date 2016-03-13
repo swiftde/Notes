@@ -31,9 +31,11 @@ class  Master: UITableViewController {
 		}
 		
 		alert.addAction(UIAlertAction(title: "Speichern", style: .Default, handler: {
-			_ in
-			
-		}))
+			[weak self] _ in
+			guard let title = alert.textFields?.first?.text else { return }
+			self?.notes.append(Note(title: title))
+			self?.tableView.reloadData()
+			}))
 		
 		alert.addAction(UIAlertAction(title: "Abbrechen", style: .Cancel, handler: nil))
 		
