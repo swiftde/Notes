@@ -23,11 +23,11 @@ class  Master: UITableViewController {
 	}
 	
 	func addNewNote() {
-		let alert = UIAlertController(title: "Hinzufügen", message: "Bitte gib einen Title der Notiz ein!", preferredStyle: .Alert)
+		let alert = UIAlertController(title: "Hinzufügen", message: "Bitte gib einen Titel der Notiz ein!", preferredStyle: .Alert)
 		
 		alert.addTextFieldWithConfigurationHandler {
 			textField in
-			textField.placeholder = "Title"
+			textField.placeholder = "Titel"
 		}
 		
 		alert.addAction(UIAlertAction(title: "Speichern", style: .Default, handler: {
