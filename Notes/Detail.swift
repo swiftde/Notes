@@ -10,10 +10,14 @@ import UIKit
 
 class Detail: UIViewController {
 
+	var note: Note?
+
+	@IBOutlet weak var contentLabel: UILabel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+		contentLabel?.text = note?.title
     }
 
 }
