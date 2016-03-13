@@ -17,6 +17,27 @@ class  Master: UITableViewController {
 		title = "Todo-Notizen"
 		let titles = ["Abonniere SwiftDe", "Tritt http://slack.swiftde.net bei", "Be awesome!"]
 		notes += titles.map(Note.init)
+		
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem:
+			.Add, target: self, action: "addNewNote")
+	}
+	
+	func addNewNote() {
+		let alert = UIAlertController(title: "Hinzufügen", message: "Bitte gib einen Title der Notiz ein!", preferredStyle: .Alert)
+		
+		alert.addTextFieldWithConfigurationHandler {
+			textField in
+			textField.placeholder = "Title"
+		}
+		
+		alert.addAction(UIAlertAction(title: "Speichern", style: .Default, handler: {
+			_ in
+			
+		}))
+		
+		alert.addAction(UIAlertAction(title: "Abbrechen", style: .Cancel, handler: nil))
+		
+		presentViewController(alert, animated: true, completion: nil)
 	}
 	
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,7 +51,7 @@ class  Master: UITableViewController {
 		
 		return cell
 	}
-
+	
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		tableView.deselectRowAtIndexPath(indexPath, animated: true)
 	}
